@@ -1,5 +1,7 @@
 # APL_Hospital_Management_System
 
+## Please check the functionalities of this code via https://youtu.be/yP_tJxVfS2c
+
 ## Description:
 The APL Hospital Management System is a desktop application built with Python and Tkinter, using MySQL for the backend. It allows patients to register and log in to the hospital system. 
 
