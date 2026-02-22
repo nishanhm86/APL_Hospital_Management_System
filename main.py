@@ -4,7 +4,7 @@ import pywinstyles
 import mysql.connector
 import hashlib
 
-# Main Window
+# Connecting to database
 
 connection = mysql.connector.connect(host="localhost",
                                      user = "root",
@@ -12,6 +12,8 @@ connection = mysql.connector.connect(host="localhost",
                                      database = "hospital_management_syste")
 
 cursor = connection.cursor()
+
+# Main Window
 
 root = tk.Tk()
 root.title("Little Angels Baby Care Hospital",)
@@ -34,6 +36,8 @@ page_container.pack(side="top", fill="both", expand=True)
 
 registration_page =tk.Frame(page_container, background="#009688")
 registration_page.place(relx=0.5, rely=0.5, anchor="center")
+
+# Registration Information
 
 name =tk.Label(registration_page, text="User name", background="#009688", fg="white", font=("Times New Roman", 18))
 txt_box_name =tk.Entry(registration_page, width=30, fg="black", font=("Times New Roman", 14))
@@ -61,6 +65,8 @@ txt_box_password.pack(pady=8, ipady=8)
 con_password.pack(pady=8)
 txt_box_con_password.pack(pady=8, ipady=8)
 
+# Registration function
+
 def register():
     name = txt_box_name.get()
     email = txt_box_email.get()
@@ -69,13 +75,18 @@ def register():
     password = txt_box_password.get()
     con_password = txt_box_con_password.get()
 
+    # Checking accuracy of both entered passwords.
+
     if password != con_password:
         messagebox.showerror("Registration Failed! Please try again.", "Passwords do not match")
 
         return
 
     try:
+
         hashed_password = hashlib.sha256(password.encode()).hexdigest()
+
+        # Inserting registration information to database.
 
         sql_insert="""INSERT into patients (name, email, dob, phone_number, password) VALUES (%s,%s,%s,%s,%s)"""
 
@@ -92,6 +103,7 @@ def register():
 
 
 # Enable switch between pages
+
 button_frame = tk.Frame(registration_page, bg="#009688")
 button_frame.pack()
 
@@ -123,6 +135,8 @@ btn_click_to_login.pack(pady=10)
 login_page = tk.Frame(page_container, background="#009688")
 login_page.place(relwidth=1, relheight=1)
 
+# Login Credential
+
 name_login_page = tk.Label(login_page, text="User name", background="#009688", fg="white", font=("Times New Roman", 18))
 txt_box_name_login_page =tk.Entry(login_page, width=30, fg="black", font=("Times New Roman", 14))
 password_login_page = tk.Label(login_page, text="Password", background="#009688", fg="white", font=("Times New Roman", 18))
@@ -133,12 +147,16 @@ txt_box_name_login_page.pack(pady=8, ipady=8)
 password_login_page.pack(pady=8)
 txt_box_password_login_page.pack(pady=8, ipady=8)
 
+# Login functions
+
 def login():
     name = txt_box_name_login_page.get()
     password = txt_box_password_login_page.get()
 
     try:
         hashed_password = hashlib.sha256(password.encode()).hexdigest()
+
+        # Checking accuracy of login credentials.
 
         sql_fetch = """SELECT * FROM patients WHERE name=%s AND password=%s;"""
         cursor.execute(sql_fetch, (name, hashed_password))
@@ -157,6 +175,8 @@ btn_login = tk.Button(login_page, text="Login", font=("Times New Roman", 18), fg
 btn_login.pack(pady=10)
 
 registration_page.tkraise()
+
+# Applying dark theme to windows background
 
 pywinstyles.apply_style(root, "dark")
 root.mainloop()
