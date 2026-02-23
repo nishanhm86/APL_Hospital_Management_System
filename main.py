@@ -174,9 +174,13 @@ def login():
 btn_login = tk.Button(login_page, text="Login", font=("Times New Roman", 18), fg="white", bg="#007968", command=login)
 btn_login.pack(pady=10)
 
+# Bring registration page to the top
+
 registration_page.tkraise()
 
 # Applying dark theme to windows background
 
 pywinstyles.apply_style(root, "dark")
+
+
 root.mainloop()
