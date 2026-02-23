@@ -56,28 +56,39 @@ pip install pywinstyles
 ### Registration
 
 Username: Enter your full name
+
 Email address: Provide a valid email
+
 Date of Birth: Format YYYY/MM/DD (e.g., 1990/01/15)
+
 Contact number: Enter your phone number
+
 Password: Create a secure password
+
 Re-enter password: Confirm your password
 
 ### Login
 
 Enter your registered username
+
 Enter your password
+
 Click "Login" to access the system
 
 ### UI Features
 
 Clean teal color scheme (#009688)
+
 Dark theme support for Windows
+
 Responsive frame switching between registration and login
+
 Centered form layout
+
 Professional font styling (Times New Roman)
 
 ## Author
 
 G G Nishan Harsha Maduranga
-Student - BCAS Campus
 
+Student - BCAS Campus
