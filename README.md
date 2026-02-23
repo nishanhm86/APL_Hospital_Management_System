@@ -1,4 +1,4 @@
-# APL_Hospital_Management_System
+# Patients_Registration_System
 
 ## Please check the functionalities of this code via https://youtu.be/yP_tJxVfS2c
 
@@ -31,11 +31,11 @@ hashlib - Password hashing to enhance security
 
 ## Database Set-up
 
-# Create Database
+### Create Database
 
 CREATE DATABASE hospital_management_syste;
 
-# Create table
+### Create table
 
 CREATE TABLE patients (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -53,7 +53,7 @@ pip install pywinstyles
 
 ## User Guideline
 
-# Registration
+### Registration
 
 Username: Enter your full name
 Email address: Provide a valid email
@@ -62,13 +62,13 @@ Contact number: Enter your phone number
 Password: Create a secure password
 Re-enter password: Confirm your password
 
-# Login
+### Login
 
 Enter your registered username
 Enter your password
 Click "Login" to access the system
 
-# UI Features
+### UI Features
 
 Clean teal color scheme (#009688)
 Dark theme support for Windows
