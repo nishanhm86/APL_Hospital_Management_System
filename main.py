@@ -156,7 +156,7 @@ def login():
     try:
         hashed_password = hashlib.sha256(password.encode()).hexdigest()
 
-        # Checking accuracy of login credentials.
+        # Checking accuracy of login credentials.git
 
         sql_fetch = """SELECT * FROM patients WHERE name=%s AND password=%s;"""
         cursor.execute(sql_fetch, (name, hashed_password))
